@@ -5,7 +5,7 @@ require('dotenv/config')
 
 router.get('/', async(req, res) => {
     try {
-        const url = 'https://api.na4.echosign.com/api/rest/v6/groups/'
+        const url = process.env.API_URL + 'groups/'
         const token = process.env.API_TOKEN
 
         const { data } = await axios.get(url, {

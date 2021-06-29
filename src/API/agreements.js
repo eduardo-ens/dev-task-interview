@@ -7,7 +7,7 @@ require('dotenv/config')
 router.get('/user/:user_id', async(req, res) => {
     const userId = req.params.user_id
     try {
-        const url = 'https://api.na4.echosign.com/api/rest/v6/agreements/'
+        const url = process.env.API_URL + 'agreements/'
         const token = process.env.API_TOKEN
 
         const { data } = await axios.get(url, {
@@ -33,7 +33,7 @@ router.get('/user/:user_id', async(req, res) => {
 
 router.get('/total', async(req, res) => {
     try {
-        const url = 'https://api.na4.echosign.com/api/rest/v6/agreements'
+        const url = process.env.API_URL + '/agreements'
         const token = process.env.API_TOKEN
 
         const { data } = await axios.get(url, {

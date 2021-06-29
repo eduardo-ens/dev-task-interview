@@ -7,7 +7,7 @@ router.get('/:group_id', async (req, res) => {
     const groupId = req.params.group_id
 
     try {
-        const url = 'https://api.na4.echosign.com/api/rest/v6/groups/' + groupId + '/users'
+        const url = process.env.API_URL + 'groups/' + groupId + '/users'
         const token = process.env.API_TOKEN
 
         const { data } = await axios.get(url, {
