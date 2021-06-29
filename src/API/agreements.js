@@ -32,10 +32,9 @@ router.get('/user/:user_id', async(req, res) => {
 
 
 router.get('/total', async(req, res) => {
-    const userId = req.params.user_id
     try {
         const url = 'https://api.na4.echosign.com/api/rest/v6/agreements'
-        const token = '3AAABLblqZhBf0V9GQArO67enaG_0pr2Q4vL2ozAqOEveOjO0aK-yGO_c1C0TDQlN0QBznfUuEIRYwwDasLyckHalRpBopPTn'
+        const token = process.env.API_TOKEN
 
         const { data } = await axios.get(url, {
             headers: {
